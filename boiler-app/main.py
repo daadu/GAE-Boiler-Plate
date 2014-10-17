@@ -20,9 +20,11 @@ import logging
 import sys
 sys.path.insert(0, 'lib')
 
-class MainHandler(webapp2.RequestHandler):
+from app.handler import Handler
+
+class MainHandler(Handler):
     def get(self):
-        self.response.write('Hello world!')
+        self.render("hello.html")
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
